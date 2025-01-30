@@ -1,13 +1,12 @@
-# Can-I-Privesc-GCP - GCP Privilege Escalation Detection Tool
+# GCP Privilege Escalation Detection
+
+![image](https://github.com/user-attachments/assets/c3c58751-dbd0-4553-85f6-771157a75b12)
 
 ## Description
 
 Can-I-Privesc-GCP is a tool designed to identify effective permissions in a Google Cloud Platform (GCP) environment and analyze them for potential privilege escalation risks. The tool retrieves permissions granted to a user, service account, or organization and checks for known privilege escalation attack paths.
 
-The project is based on two core functionalities:
 
-- Brute-force testing for GCP permissions – This method attempts to check all possible permissions available to the user.
-- Privilege escalation detection – After retrieving the user's permissions, the script analyzes them to determine if any privilege escalation paths exist, referencing known attack vectors.
 
 ## Features
 
@@ -18,23 +17,21 @@ The project is based on two core functionalities:
 
 ## Usage
 
-The tool requires GCP credentials and can be run against a project, folder, or organization to check available permissions and privilege escalation possibilities.
+The tool requires GCP credentials and can be run against a project, folder, or organization to check available permissions and privilege escalation possibilities. Check ```python3 can-i-privesc-gcp.py -h``` for detailed options
 
 ### Running the Script
 
-1. Install the dependencies
+```bash
+git clone https://github.com/shamo0/can-i-privesc-gcp.git
+cd can-i-privesc-gcp
+pip install -r requirements.txt
+python3 can-i-privesc-gcp.py --project <PROJECT_ID> -t $(gcloud auth print-access-token)
+```
 
-```pip install -r requirements.txt```
-
-2. Run the script
-
-```python3 can-i-privesc-gcp.py --project <PROJECT_ID>```
-
-3. The tool will enumerate permissions and check for privilege escalation paths automatically
 
 ## Credits
 
-The GCP permission brute-force enumeration part of this script is originally developed by Carlospolop, the creator of HackTricks. This tool extends and enhances his work by adding privilege escalation detection and a structured analysis of permissions.
+The GCP permission [brute-force enumeration](https://github.com/carlospolop/bf_my_gcp_permissions) part of this script is originally developed by Carlos Polop, the creator of HackTricks. This tool extends and enhances his work by adding privilege escalation detection and a structured analysis of permissions.
 
 ## Contributing
 
