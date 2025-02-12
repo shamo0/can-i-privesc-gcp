@@ -33,6 +33,10 @@ python3 can-i-privesc-gcp.py --project <PROJECT_ID> -t $(gcloud auth print-acces
 
 The GCP permission [brute-force enumeration](https://github.com/carlospolop/bf_my_gcp_permissions) part of this script is originally developed by Carlos Polop, the creator of HackTricks. This tool extends and enhances his work by adding privilege escalation detection and a structured analysis of permissions.
 
+## ToDo
+
+- Add Post Exploitation path detection
+
 ## Contributing
 
 Contributions are welcome! If you have new privilege escalation techniques or improvements, feel free to submit a pull request or open an issue.
