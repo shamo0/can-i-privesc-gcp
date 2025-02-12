@@ -4,16 +4,15 @@
 
 ## Description
 
-Can-I-Privesc-GCP is a tool designed to identify effective permissions in a Google Cloud Platform (GCP) environment and analyze them for potential privilege escalation risks. The tool retrieves permissions granted to a user, service account, or organization and checks for known privilege escalation attack paths.
-
-
+Can-I-Privesc-GCP is a tool designed to identify effective permissions in a Google Cloud Platform (GCP) environment and analyze them for potential privilege escalation risks and post exploitation paths. The tool retrieves permissions granted to a user, service account, or organization and checks for known privilege escalation attack paths.
 
 ## Features
 
 - Retrieves all effective permissions granted to the user.
 - Analyzes permissions for known privilege escalation paths.
 - Provides detailed information on detected privilege escalation risks.
-- Includes direct links to HackTricks documentation for further research on privilege escalation techniques.
+- Provides detailed information on detected post exploitation paths.
+- Includes direct links to documentation for further information on privilege escalation and post exploitation techniques.
 
 ## Usage
 
@@ -31,11 +30,7 @@ python3 can-i-privesc-gcp.py --project <PROJECT_ID> -t $(gcloud auth print-acces
 
 ## Credits
 
-The GCP permission [brute-force enumeration](https://github.com/carlospolop/bf_my_gcp_permissions) part of this script is originally developed by Carlos Polop, the creator of HackTricks. This tool extends and enhances his work by adding privilege escalation detection and a structured analysis of permissions.
-
-## ToDo
-
-- Add Post Exploitation path detection
+The GCP permission [brute-force enumeration](https://github.com/carlospolop/bf_my_gcp_permissions) part of this script is originally developed by Carlos Polo. This tool extends and enhances his work by adding privilege escalation and post exploitation detection and a structured analysis of permissions.
 
 ## Contributing
 
