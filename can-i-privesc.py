@@ -9,8 +9,8 @@ import googleapiclient.discovery
 import concurrent.futures
 from concurrent.futures import ThreadPoolExecutor
 from threading import Lock
-# privesc-detector.py
 from modules import check_privesc
+from modules import check_postexploitation
 from colorama import Fore, Style, init
 
 init(autoreset=True)
@@ -169,7 +169,23 @@ def main():
                 print(Fore.LIGHTBLUE_EX + f"  🔗 More Info: {details['link']}" + Style.RESET_ALL)
             print()  # Add a newline for readability
     else:
-        print(f"\n{Fore.GREEN}✔ No privilege escalation detected.{Style.RESET_ALL}")
+        print(f"\n{Fore.GREEN}✔ No Privilege Escalation detected.{Style.RESET_ALL}")
+
+    # Check post exploitation
+    detected_postexp = check_postexploitation.check_postexploitation(have_perms)
+
+    if detected_postexp:
+        print(f"\n{Fore.RED}[!] Detected Post Exploitation Paths:{Style.RESET_ALL}\n")
+        for attack_name, details in detected_postexp.items():
+            print(f"{Fore.YELLOW}⚡ {attack_name}:{Style.RESET_ALL}")
+            print(Fore.LIGHTWHITE_EX + "  🔎 Required Permissions:" + Style.RESET_ALL)
+            for perm in details["permissions"]:
+                print(Fore.LIGHTYELLOW_EX + f"    - {perm}" + Style.RESET_ALL)
+            if details["link"]:
+                print(Fore.LIGHTBLUE_EX + f"  🔗 More Info: {details['link']}" + Style.RESET_ALL)
+            print()  # Add a newline for readability
+    else:
+        print(f"\n{Fore.GREEN}✔ No Post Exploitation detected.{Style.RESET_ALL}")
 
 
 if __name__ == "__main__":
