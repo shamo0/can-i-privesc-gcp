@@ -27,7 +27,6 @@ pip install -r requirements.txt
 python3 can-i-privesc-gcp.py --project <PROJECT_ID> -t $(gcloud auth print-access-token)
 ```
 
-
 ## Credits
 
 The GCP permission [brute-force enumeration](https://github.com/carlospolop/bf_my_gcp_permissions) part of this script is originally developed by Carlos Polo. This tool extends and enhances his work by adding privilege escalation and post exploitation detection and a structured analysis of permissions.
